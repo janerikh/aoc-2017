@@ -1,7 +1,7 @@
 fun main(args: Array<String>) {
 
-//    part1()
-    part2()
+    part1()
+//    part2()
 }
 
 fun part1() {
@@ -27,14 +27,10 @@ fun part1() {
 //            "7\t5\t3\n" +
 //            "2\t4\t6\t8"
 
-    val rowList = input.split("\n")
-
-    var sum = 0
-    for (row in rowList) {
-        val rowInts = row.split("\t")
-                .map { s -> s.toInt() }
-        sum += rowInts.max()?.minus(rowInts.min()!!) ?: 0
-    }
+    val sum = input.split("\n")
+            .map { it.split("\t")
+                    .map { it.toInt() }}
+            .map { it.max()!! - it.min()!! }.sum()
 
     println("sum: $sum")
 }
